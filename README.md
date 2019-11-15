@@ -1,8 +1,8 @@
-# switch1
+# basic-pipeline
 
 ## Purpose
 
-This repository holds the inventory, variables, and playbooks/roles to configure switches. The purpose is a super simple playbook and robot test that will demonstrate a POC of those 2 things flowing through Jenkins.
+This repository holds the inventory, variables, and playbooks/roles to configure Junos devices. The purpose is a super simple playbook and robot test that will demonstrate a POC of those 2 things flowing through Jenkins.
 
 ## Jenkins
 
@@ -116,10 +116,11 @@ Then modifying the start command by adding the following:
 
 On Ubuntu, this looks like:
 
+```bash
   # Workaround to display Robot reports in Jenkins builds
   ROBOT_WORKROUND="sandbox allow-scripts; default-src 'none'; img-src 'self' data: ; style-src 'self' 'unsafe-inline' data: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;"
 
   # --user in daemon doesn't prepare environment variables like HOME, USER, LOGNAME or USERNAME,
   # so we let su do so for us now
   $SU -l $JENKINS_USER --shell=/bin/bash -c "$DAEMON $DAEMON_ARGS -- $JAVA $JAVA_ARGS -Dhudson.model.DirectoryBrowserSupport.CSP=$ROBOT_WORKAROUND -jar $JENKINS_WAR $JENKINS_ARGS" || return 2
-# basic-pipeline
+  ```
