@@ -1,0 +1,23 @@
+---
+- hosts: 
+    - R1
+    - R2
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  vars:
+    provider_settings:
+      host: "{{ ansible_host }}"
+      timeout: 120
+      port: "{{ port }}"
+      user: "{{ username }}"
+      password: "{{ password }}"
+  tasks:
+    - name: Generate the config
+      template:
+        src: templates/interface.j2
+        dest: output/{{ inventory_hostname }}.conf
+    # - name: Push the config
+    #   junos_config:
+

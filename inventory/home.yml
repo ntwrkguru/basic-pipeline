@@ -1,0 +1,15 @@
+---
+all:
+  children:
+    switches:
+      hosts:
+        R1:
+          ansible_ssh_host: 10.102.176.136
+        R2:
+          ansible_ssh_host: 10.102.176.149
+
+  vars:
+    ansible_python_interpreter: "/usr/local/bin/python3"
+    username: lab
+    password: Juniper123
+    port: '22'

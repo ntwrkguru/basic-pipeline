@@ -1,0 +1,7 @@
+ansible==2.7.4
+junos-eznc==2.2.0
+jxmlease==1.0.1
+robotframework==3.1.1
+cryptography==2.4.2
+pycrypto
+yamllint

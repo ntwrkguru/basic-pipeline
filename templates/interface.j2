@@ -1,0 +1,16 @@
+#jinja2:lstrip_blocks: True
+interfaces {
+    {% for key, values in interfaces.iteritems() %}
+        {{ key }} {
+            mtu 9192;
+            {% for unit_list in values %}
+                {% for unit, address in unit_list.iteritems() %}
+                    replace: unit {{ unit }} {
+                        family inet {
+                            address {{ address }};
+                        }
+                    }
+                {% endfor %}
+            {% endfor %}
+        }
+    {% endfor %}
