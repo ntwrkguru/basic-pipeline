@@ -1,0 +1,4 @@
+local_hosts.sh
+.idea/
+*output*
+.DS_Store
